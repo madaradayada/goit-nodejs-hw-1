@@ -18,7 +18,7 @@ const getContactById = async(contactId) => {
         const contacts = await listContacts();
         const contact = contacts.find(({ id }) => id === contactId.toString());
         return contact || null;       
-    } catch (erorr) {
+    } catch (error) {
         console.log(error);
     }
 }
@@ -36,7 +36,7 @@ const addContact = async(name, email, phone) => {
     contacts.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
     return newContact;
-  } catch (erorr) {
+  } catch (error) {
     console.log(error);
   }
 }
